@@ -151,5 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   _speed: 4
-  _gravity: 10
-  _jumpForce: 20
+  _gravity: -10
+  _jumpForce: 0.5
+  _jumpHeight: 1
