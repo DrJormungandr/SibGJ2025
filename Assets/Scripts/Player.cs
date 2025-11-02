@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     private bool _applyGravity = true;
     private float _initialJumpStartPos = 0;
 
-
     private void Awake()
     {
         InitPlayerMovementInput();
@@ -38,6 +37,7 @@ public class Player : MonoBehaviour
         {
             ApplyGravity();
         }
+        UpdateTurnDirection();
     }
     private void InitPlayerMovementInput()
     {
@@ -84,5 +84,17 @@ public class Player : MonoBehaviour
             _applyGravity = true;
         }
 
+    }
+
+    private void UpdateTurnDirection()
+    {
+        if (_currentMovement.x != 0 || _currentMovement.z != 0)
+        {
+            float offset = 90;
+            Vector3 movementDirection = new Vector3(_currentMovementInput.x, 0, _currentMovementInput.y).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            transform.rotation = lookRotation * Quaternion.Euler(0, offset, 0);
+        }
+            
     }
 }
