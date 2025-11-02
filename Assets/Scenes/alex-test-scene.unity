@@ -4414,6 +4414,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9142311706336423688, guid: b1a46432a51088244bd018a9eede1c98, type: 3}
+      propertyPath: _gravity
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142311706336423688, guid: b1a46432a51088244bd018a9eede1c98, type: 3}
+      propertyPath: _jumpForce
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142311706336423688, guid: b1a46432a51088244bd018a9eede1c98, type: 3}
+      propertyPath: _jumpHeight
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
