@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private bool _isJumpPressed = false;
     private bool _isJumping = false;
     private bool _applyGravity = true;
+    private float _initialJumpStartPos = 0;
+
 
     private void Awake()
     {
@@ -65,22 +67,23 @@ public class Player : MonoBehaviour
     }
     private void HandleJump()
     {
-        float initialJumpStartPos = 0;
         if (_isJumpPressed && _characterController.isGrounded && !_isJumping)
         {
             _applyGravity = false;
             _isJumping = true;
             _currentMovement.y = _jumpForce;
-            initialJumpStartPos = transform.position.y;
+            _initialJumpStartPos = transform.position.y;
         }
         else if (!_isJumpPressed && _isJumping && _characterController.isGrounded)
         {
             _isJumping = false;
         }
-                // Debug.Log(transform.position.y - initialJumpStartPos);
 
-        if (_isJumping && (transform.position.y - initialJumpStartPos) >= _jumpHeight)
+        if (_isJumping && (transform.position.y - _initialJumpStartPos) >= _jumpHeight)
         {
+            Debug.Log(_initialJumpStartPos);
+            Debug.Log(transform.position.y);
+            Debug.LogWarning(transform.position.y - _initialJumpStartPos);
             _applyGravity = true;
         }
 
