@@ -1,0 +1,139 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+Recordings/
+CrashReports/
+
+# Lightmapping cache
+LightmapSnapshot/
+LightingData.asset
+
+# Unity auto-generated
+sysinfo.txt
+*.pidb
+*.booproj
+*.suo
+*.user
+*.userprefs
+*.unityproj
+*.dll.mdb
+*.exe.mdb
+*.mdb
+*.pdb
+*.opendb
+*.VC.db
+
+# Rider / Visual Studio / VSCode
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.suo
+*.tmp
+*.pidb
+*.svd
+
+# Build artifacts
+*.apk
+*.aab
+*.xcodeproj/
+*.xcworkspace/
+*.ipa
+*.app
+*.exe
+*.dll
+*.so
+*.dylib
+*.bundle
+*.unitypackage
+
+# Crash / profiler reports
+sysinfo.txt
+*.stacktrace
+
+# Others
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*.swp
+
+# JetBrains Rider
+.idea/
+*.iml[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+Recordings/
+CrashReports/
+
+# Lightmapping cache
+LightmapSnapshot/
+LightingData.asset
+
+# Unity auto-generated
+sysinfo.txt
+*.pidb
+*.booproj
+*.suo
+*.user
+*.userprefs
+*.unityproj
+*.dll.mdb
+*.exe.mdb
+*.mdb
+*.pdb
+*.opendb
+*.VC.db
+
+# Rider / Visual Studio / VSCode
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.suo
+*.tmp
+*.pidb
+*.svd
+
+# Build artifacts
+*.apk
+*.aab
+*.xcodeproj/
+*.xcworkspace/
+*.ipa
+*.app
+*.exe
+*.dll
+*.so
+*.dylib
+*.bundle
+*.unitypackage
+
+# Crash / profiler reports
+sysinfo.txt
+*.stacktrace
+
+# Others
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*.swp
+
+# JetBrains Rider
+.idea/
+*.iml
