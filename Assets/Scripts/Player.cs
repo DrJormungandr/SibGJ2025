@@ -81,9 +81,6 @@ public class Player : MonoBehaviour
 
         if (_isJumping && (transform.position.y - _initialJumpStartPos) >= _jumpHeight)
         {
-            Debug.Log(_initialJumpStartPos);
-            Debug.Log(transform.position.y);
-            Debug.LogWarning(transform.position.y - _initialJumpStartPos);
             _applyGravity = true;
         }
 
