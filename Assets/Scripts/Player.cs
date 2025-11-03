@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
             if (body != null && !body.isKinematic)
             {
                 Vector3 pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-	            body.AddForce(pushDirection * 10, ForceMode.Force);
+	            body.AddForce(pushDirection * 8, ForceMode.Force);
             }
         }
     }
