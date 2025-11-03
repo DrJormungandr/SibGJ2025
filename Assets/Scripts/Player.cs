@@ -7,17 +7,23 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 4F;
     [SerializeField]
-    private float _gravity = 10F;
+    private float _gravity = -10F;
     [SerializeField]
-    private float _jumpForce = 2f;
+    private float _jumpForce = 8f;
+    [SerializeField]
+    private float _jumpHeight = 3f;
+
     private InputSystem_Actions _playerInput;
     private CharacterController _characterController;
     private Vector2 _currentMovementInput;
     private Vector3 _currentMovement;
     private bool _isJumpPressed = false;
+    private bool _isJumping = false;
     private bool _applyGravity = true;
+    private float _initialJumpStartPos = 0;
 
-    private void Awake() {
+    private void Awake()
+    {
         InitPlayerMovementInput();
         _characterController = gameObject.GetComponent<CharacterController>();
     }
@@ -25,21 +31,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _characterController.Move(_speed * Time.deltaTime * _currentMovement);
-        if (_isJumpPressed)
-        {
-            _characterController.Move(new Vector3(_currentMovement.x, _jumpForce, _currentMovement.z) * Time.deltaTime);
-            _applyGravity = false;
-        } else
-        {
-            _applyGravity = true;
-        }
+        _characterController.Move(Time.deltaTime * _currentMovement);
+        HandleJump();
         if (_applyGravity)
         {
             ApplyGravity();
         }
+        UpdateTurnDirection();
     }
-
     private void InitPlayerMovementInput()
     {
         _playerInput = new InputSystem_Actions();
@@ -54,8 +53,8 @@ public class Player : MonoBehaviour
     private void OnMovementInput(InputAction.CallbackContext context)
     {
         _currentMovementInput = context.ReadValue<Vector2>();
-        _currentMovement.x = _currentMovementInput.x;
-        _currentMovement.z = _currentMovementInput.y;
+        _currentMovement.x = _currentMovementInput.x * _speed;
+        _currentMovement.z = _currentMovementInput.y * _speed;
 
     }
     private void OnJumpInput(InputAction.CallbackContext context)
@@ -64,6 +63,38 @@ public class Player : MonoBehaviour
     }
     private void ApplyGravity()
     {
-        _characterController.Move(new Vector3(_currentMovement.x, -_gravity, _currentMovement.z) * Time.deltaTime);
+        _currentMovement.y = _gravity;
+    }
+    private void HandleJump()
+    {
+        if (_isJumpPressed && _characterController.isGrounded && !_isJumping)
+        {
+            _applyGravity = false;
+            _isJumping = true;
+            _currentMovement.y = _jumpForce;
+            _initialJumpStartPos = transform.position.y;
+        }
+        else if (!_isJumpPressed && _isJumping && _characterController.isGrounded)
+        {
+            _isJumping = false;
+        }
+
+        if (_isJumping && (transform.position.y - _initialJumpStartPos) >= _jumpHeight)
+        {
+            _applyGravity = true;
+        }
+
+    }
+
+    private void UpdateTurnDirection()
+    {
+        if (_currentMovement.x != 0 || _currentMovement.z != 0)
+        {
+            float offset = 90;
+            Vector3 movementDirection = new Vector3(_currentMovementInput.x, 0, _currentMovementInput.y).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            transform.rotation = lookRotation * Quaternion.Euler(0, offset, 0);
+        }
+            
     }
 }
