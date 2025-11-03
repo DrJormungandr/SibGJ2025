@@ -152,7 +152,7 @@ MonoBehaviour:
   _gravity: -10
   _jumpForce: 8
   _jumpHeight: 3
-  _fuelIncreaseOnPickup: 3
+  _fuelIncreaseOnPickup: 0.2
 --- !u!143 &5032197464284592445
 CharacterController:
   m_ObjectHideFlags: 0
