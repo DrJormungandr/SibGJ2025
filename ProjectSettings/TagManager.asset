@@ -9,6 +9,7 @@ TagManager:
   - Crate
   - Fuel
   - Checkpoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
