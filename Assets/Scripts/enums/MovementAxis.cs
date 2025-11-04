@@ -1,0 +1,5 @@
+enum MovementAxis
+{
+    Vertical,
+    Horizontal,
+}

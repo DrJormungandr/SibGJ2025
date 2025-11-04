@@ -90,6 +90,11 @@ public class GameManager : MonoBehaviour
         _scoreText.text = $"{_currentCheckpoints}/{_checkpointsToWin}";
     }
 
+    public void OnPlayerDeath()
+    {
+        GameOverSequence();
+    }
+
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(3);
