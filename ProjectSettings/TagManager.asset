@@ -8,6 +8,7 @@ TagManager:
   - GameManager
   - Crate
   - Fuel
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
