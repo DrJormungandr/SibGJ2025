@@ -167,8 +167,14 @@ public class Player : MonoBehaviour
             _isNearTorch = true;
             _torchOnGround = other.gameObject;
         }
-        if (other.CompareTag("Fuel") && _isHoldingTorch) {
+        if (other.CompareTag("Fuel") && _isHoldingTorch)
+        {
             _gameManager.IncreaseFuel(_fuelIncreaseOnPickup);
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            _gameManager.OnCheckpointPickUp();
             Destroy(other.gameObject);
         }
     }
