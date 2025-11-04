@@ -177,6 +177,10 @@ public class Player : MonoBehaviour
             _gameManager.OnCheckpointPickUp();
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("Enemy")) {
+            _gameManager.OnPlayerDeath();
+            this.enabled = false;    
+        }
     }
 
     void OnTriggerExit(Collider other)
